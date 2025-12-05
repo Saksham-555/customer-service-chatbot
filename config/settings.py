@@ -48,6 +48,12 @@ class DocumentConfig:
     # Chunking parameters
     CHUNK_SIZE = 1000  # Characters per chunk
     CHUNK_OVERLAP = 200  # Overlap between chunks
+    # CHUNK_SEPERATOR = "\n\n" #Seperator between chunks
+    # CHUNK_EMBEDDING_MODEL = "all-MiniLM-L6-v2" # Embedding model for chunks
+    #CHUNK_EMBEDDING_DIM = 384 # Embedding dimension
+    #CHUNK_EMBEDDING_MODEL_KWARGS = {"normalize_embeddings": True} # Embedding model kwargs
+    #CHUNK_EMBEDDING_MODEL_KWARGS = {"normalize_embeddings": True} # Embedding model kwargs
+
 
     # File paths
     PDF_FOLDER = Path("data/pdf")                 # <-- used by app & processor
@@ -130,3 +136,10 @@ class Features:
     SHOW_THINKING = False        # Show <think> tags (for reasoning models)
     ENABLE_FILE_UPLOAD = False   # Allow users to upload PDFs
     SAVE_CONVERSATIONS = False   # Save chat history to database
+
+
+# make UIConfig flags follow Features (keeps them in sync)
+UIConfig.SHOW_SOURCES = Features.SHOW_SOURCES
+UIConfig.SHOW_THINKING = Features.SHOW_THINKING
+UIConfig.ENABLE_FILE_UPLOAD = Features.ENABLE_FILE_UPLOAD
+UIConfig.SAVE_CONVERSATIONS = Features.SAVE_CONVERSATIONS    
